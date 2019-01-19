@@ -1,0 +1,50 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: $modal-overlay-background;
+  z-index: $modal-z;
+
+  &.is-open {
+    display: flex;
+  }
+}
+
+.modal-layout {
+  @extend .flex-col;
+
+  background: $modal-layout-background;
+  margin: 1rem;
+  width: calc(100% - 2rem);
+  max-width: $modal-layout-max-width;
+  padding: 1rem;
+  border-radius: $border-radius;
+}
+
+.modal-header {
+  @extend .flex-row;
+
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal-title {
+  @extend .bold;
+  @extend .flex-row;
+
+  flex: 1 1 0;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
+
+.modal-close {
+  @extend .flex-row;
+  flex: 0 0 auto;
+  padding: 1rem;
+}

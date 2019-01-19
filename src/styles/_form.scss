@@ -1,0 +1,63 @@
+.form {
+  @extend .flex-col;
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 2rem;
+
+  span {
+    position: absolute;
+    transition: 180ms;
+  }
+
+  .label {
+    left: 0rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $hint-font-color;
+    cursor: text;
+  }
+
+  .border {
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 0.1rem;
+    background: $primary-color;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 0.1rem;
+    background: $border-color;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.form-input {
+  border: none;
+  font-size: 1.6rem;
+  padding: 0.8rem 0;
+
+  &:valid, &:focus {
+    & ~ .label {
+      transform: translateY(1.8rem);
+      color: $primary-color;
+      font-size: 1.2rem;
+    }
+    & ~ .border {
+      left: 0;
+      width: 100%
+    }
+  }
+}
+
+.form-error {
+  color: $danger-color;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}

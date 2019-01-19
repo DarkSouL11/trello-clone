@@ -1,0 +1,33 @@
+.bold {
+  font-weight: 600;
+}
+
+.draggable {
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.mgn-r {
+  margin-right: 0.5rem;
+}
+
+.mgn-t {
+  margin-top: 1rem;
+}
+
+.primary {
+  color: $primary-color;
+}

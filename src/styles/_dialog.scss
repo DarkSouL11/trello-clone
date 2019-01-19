@@ -1,0 +1,13 @@
+.dialog {
+  @extend .flex-col;
+}
+
+.dialog-message {
+  margin-bottom: 1rem;
+}
+
+.dialog-action {
+  @extend .flex-row;
+
+  justify-content: flex-end;
+}

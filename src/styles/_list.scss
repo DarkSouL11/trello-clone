@@ -1,0 +1,66 @@
+.lists-container {
+  @extend .flex-row;
+
+  flex: 1 1 0;
+  height: 100%;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.list-pseudo-wrapper {
+  @extend .flex-row;
+
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex: 0 0 auto;
+}
+
+.list {
+  @extend .flex-col;
+
+  background: $list-background;
+  flex: 0 0 auto;
+  margin: $list-margin 0; 
+  margin-right: $list-margin;
+  padding: 1rem;
+  width: $list-width;
+  border-radius: $border-radius;
+  box-shadow: $shadow-color 0.2rem 0.2rem 1.2rem;
+  max-height: calc(100vh - #{2 * $list-margin + 2rem});
+
+  &:first-child {
+    margin-left: $list-margin;
+  }
+
+  &.is-moving {
+    opacity: 0.3;
+  }
+
+  &.indicate-drop {
+    border-left: 0.5rem solid $success-color;
+  }
+
+  &.is-shadow {
+    background: rgba(1, 1, 1, 0.5);
+  }
+}
+
+.list-info {
+  @extend .flex-row;
+
+  flex: 0 0 auto;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.list-title {
+  flex: 1 1 0;
+}
+
+.list-items {
+  @extend .flex-col;
+
+  width: calc(100% + 2rem);
+  margin-left: -1rem;
+  padding: 0 1rem;
+}

@@ -1,0 +1,22 @@
+.item {
+  @extend .flex-col;
+
+  background: $item-background;
+  padding: 1rem;
+  flex: 0 0 auto;
+  border-radius: $border-radius;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.item-desc {
+  margin-bottom: 0.5rem;
+}
+
+.item-action {
+  @extend .flex-row;
+
+  justify-content: flex-end;
+}
