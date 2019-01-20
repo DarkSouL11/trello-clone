@@ -34,6 +34,7 @@ class EditItemForm extends Component {
     return (
       <Form onSubmit={this.submit}>
         <Input
+          autoFocus
           value={description}
           label="Description"
           type="text"

@@ -13,6 +13,7 @@ import DummyItem from '../item/DummyItem';
 function List({
   connectDragSource,
   connectDropTarget,
+  dialogStore,
   id,
   isDragging,
   listsStore: store
@@ -34,7 +35,17 @@ function List({
         <div className="list-title">{list.title}</div>
         <div className="list-action">
           <Tappable
-            className="btn-round"
+            className="btn btn-inverted btn-danger btn-small mgn-r"
+            onClick={() => dialogStore.areYouSure({
+              message: `Proceeding will delete the list and all the tasks in it.
+              It can't be undone.`,
+              onOk: () => store.deleteList(id)
+            })}
+          >
+            <Icon name="delete" />
+          </Tappable>
+          <Tappable
+            className="btn btn-inverted btn-small"
             onClick={() => store.setListModalMode('update', { id })}
           >
             <Icon name="edit" />
@@ -58,7 +69,7 @@ function List({
 const hoc = compose(
   droppableListTarget,
   draggableList,
-  mobxify('listsStore')
+  mobxify('dialogStore', 'listsStore')
 );
 
 export default hoc(List);

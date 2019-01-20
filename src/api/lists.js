@@ -16,12 +16,12 @@ function configureLists() {
       order: [1, 2],
       data: {
         1: {
-          title: 'To do',
-          items: []
+          title: 'Introduction',
+          items: [1, 2]
         },
         2: {
-          title: 'In progress',
-          items: []
+          title: 'Tips!',
+          items: [3, 4]
         }
       },
       added: 2
@@ -61,6 +61,14 @@ function deleteItemFromList(listId, itemId) {
   const lsData = localStore.getItem(lsKey);
   removeElement(lsData.data[listId].items, itemId);
   localStore.setItem(lsKey, lsData);
+}
+
+function deleteList(listId) {
+  const lsData = localStore.getItem(lsKey);
+  removeElement(lsData.order, listId);
+  delete lsData.data[listId];
+  localStore.setItem(lsKey, lsData);
+  return lsData.order;
 }
 
 function editList(id, title) {
@@ -108,6 +116,7 @@ export default {
   add: addList,
   addItem: addItemToList,
   configure: configureLists,
+  delete: deleteList,
   deleteItem: deleteItemFromList,
   edit: editList,
   get: getList,

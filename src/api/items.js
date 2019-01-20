@@ -12,8 +12,21 @@ function configureItems() {
      * `added` - Total number of items added, used for generating unique id to new items.
      */
     lsData = {
-      data: {},
-      added: 0
+      data: {
+        1: {
+          description: 'Welcome to Task Manager'
+        },
+        2: {
+          description: 'You can add tasks to any list or create a new list.'
+        },
+        3: {
+          description: 'Lists can be reordered as per your liking.'
+        },
+        4: {
+          description: 'Tasks can be moved between different lists.'
+        }
+      },
+      added: 4
     };
 
     localStore.setItem(lsKey, lsData);

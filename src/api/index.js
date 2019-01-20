@@ -17,6 +17,12 @@ function deleteItem(listId, itemId) {
   items.delete(itemId);
 }
 
+function deleteList(listId) {
+  const list = lists.get().lists[listId];
+  list.items.forEach(itemId => deleteItem(listId, itemId));
+  return lists.delete(listId);
+}
+
 function getData() {
   const { lists: listsData, order } = lists.get();
   const { items: itemsData } = items.get();
@@ -41,6 +47,7 @@ export default {
   addList,
   configure,
   deleteItem,
+  deleteList,
   editItem,
   editList,
   get: getData,

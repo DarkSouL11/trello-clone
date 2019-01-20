@@ -21,11 +21,13 @@ class Input extends Component {
 
   render() {
     const { value } = this.state;
-    const { label, type } = this.props;
+    const { autoFocus, label, type } = this.props;
     return (
       <div className="form-field">
         <label htmlFor={`input_${id}`}>
           <input
+            // eslint-disable-next-line jsx-a11y/no-autofocus
+            autoFocus={autoFocus}
             id={`input_${id}`}
             required
             className="form-input"

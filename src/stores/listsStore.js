@@ -49,6 +49,11 @@ class ListStore {
         delete this.items[itemId];
       }),
 
+      deleteList: action(listId => {
+        const order = api.deleteList(listId);
+        this.order = order;
+      }),
+
       editItem: action((itemId, description) => {
         const { id, ...itemData } = api.editItem(itemId, description);
         this.items[id] = itemData;

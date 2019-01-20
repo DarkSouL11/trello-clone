@@ -59,6 +59,31 @@
   }
 }
 
+.btn-inverted {
+  background: none !important;
+  color: $primary-color;
+
+  &:hover {
+    color: $primary-color-hover;
+  }
+
+  &:active {
+    color: $primary-color-active;
+  }
+
+  &.btn-danger {
+    color: $danger-color;
+
+    &:hover {
+      color: $danger-color-hover;
+    }
+  
+    &:active {
+      color: $danger-color-active;
+    }
+  }
+}
+
 .btn-round {
   width: $btn-round-size;
   height: $btn-round-size;

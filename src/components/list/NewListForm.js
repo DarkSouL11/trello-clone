@@ -33,6 +33,7 @@ class NewListForm extends Component {
     return (
       <Form onSubmit={this.submit}>
         <Input
+          autoFocus
           value={title}
           label="Title"
           type="text"
