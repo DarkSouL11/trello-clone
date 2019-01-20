@@ -59,11 +59,35 @@ class ListStore {
         this.lists[id] = listData;
       }),
 
+      moveItem: action((source, target) => {
+        const { list1, list2 } = api.moveItem(source, target);
+        const { id: id1, ...listData1 } = list1;
+        const { id: id2, ...listData2 } = list2;
+
+        this.lists[id1] = listData1;
+        this.lists[id2] = listData2;
+      }),
+
       moveList: action((listId, newPos) => {
         const newOrder = api.moveList(listId, newPos);
         this.order = newOrder;
       })
     });
+  }
+
+  getListIdOfItem(itemId) {
+    let itemListId;
+
+    this.order.some(listId => {
+      const { items } = this.lists[listId];
+      if (items.includes(itemId)) {
+        itemListId = listId;
+        return true;
+      } else {
+        return false;
+      }
+    });
+    return itemListId;
   }
 }
 

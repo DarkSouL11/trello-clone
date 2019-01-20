@@ -4,17 +4,19 @@ import { draggableTypes } from '../../utils/constants';
 import listsStore from '../../stores/listsStore';
 
 const target = {
-  drop({ position }, monitor) {
+  canDrop() {
+    return false;
+  },
+
+  hover({ position }, monitor) {
     const { id: draggedListId } = monitor.getItem();
     listsStore.moveList(draggedListId, position);
   }
 };
 
-function collect(connect, monitor) {
+function collect(connect) {
   return {
-    connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver(),
-    item: monitor.getItem()
+    connectDropTarget: connect.dropTarget()
   };
 }
 

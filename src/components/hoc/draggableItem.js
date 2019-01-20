@@ -19,4 +19,4 @@ function collect(connect, monitor) {
   };
 }
 
-export default DragSource(draggableTypes.LIST, source, collect);
+export default DragSource(draggableTypes.ITEM, source, collect);

@@ -79,6 +79,23 @@ function getList() {
   return { lists, order };
 }
 
+function moveItem(source, target) {
+  const lsData = localStore.getItem(lsKey);
+
+  const sourceItems = lsData.data[source.listId].items;
+  removeElement(sourceItems, source.itemId);
+
+  const targetItems = lsData.data[target.listId].items;
+  insertElement(targetItems, source.itemId, target.position);
+
+  localStore.setItem(lsKey, lsData);
+
+  return {
+    list1: { id: source.listId, ...lsData.data[source.listId] },
+    list2: { id: target.listId, ...lsData.data[target.listId] }
+  };
+}
+
 function moveList(listToMoveId, newPosition) {
   const lsData = localStore.getItem(lsKey);
   removeElement(lsData.order, listToMoveId);
@@ -94,5 +111,6 @@ export default {
   deleteItem: deleteItemFromList,
   edit: editList,
   get: getList,
-  move: moveList
+  move: moveList,
+  moveItem
 };

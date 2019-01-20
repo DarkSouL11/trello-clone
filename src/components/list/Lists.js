@@ -12,7 +12,7 @@ function Lists({ listsStore: store }) {
   return (
     <div className="lists-container scroll-h">
       {store.order.map(listUi)}
-      <div className="list">
+      <div className="list-new-btn">
         <Tappable
           className="btn"
           onClick={() => store.setListModalMode('new')}

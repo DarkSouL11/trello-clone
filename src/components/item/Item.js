@@ -1,18 +1,30 @@
 import React from 'react';
+import classNames from 'classnames';
+import compose from 'lodash/fp/compose';
 
+import draggableItem from '../hoc/draggableItem';
+import droppableItemTarget from '../hoc/droppableItemTarget';
 import mobxify from '../hoc/mobxify';
 import Tappable from '../general/Tappable';
 
 function Item({
+  connectDragSource,
+  connectDropTarget,
   dialogStore,
   id,
+  isDragging,
   listId,
   listsStore: store
 }) {
   const item = store.items[id];
 
-  return (
-    <div className="item">
+  return connectDropTarget(connectDragSource(
+    <div
+      className={classNames(
+        'item draggable',
+        { 'is-moving': isDragging }
+      )}
+    >
       <div className="item-desc">
         {item.description}
       </div>
@@ -34,7 +46,14 @@ function Item({
         </Tappable>
       </div>
     </div>
-  );
+  ));
 }
 
-export default mobxify('dialogStore', 'listsStore')(Item);
+const hoc = compose(
+  droppableItemTarget,
+  draggableItem,
+  mobxify('dialogStore', 'listsStore')
+);
+
+
+export default hoc(Item);

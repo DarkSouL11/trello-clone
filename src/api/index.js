@@ -27,13 +27,14 @@ function getData() {
   };
 }
 
-const addList = lists.add;
+const { edit: editItem } = items;
 
-const editItem = items.edit;
-
-const editList = lists.edit;
-
-const moveList = lists.move;
+const {
+  add: addList,
+  edit: editList,
+  move: moveList,
+  moveItem
+} = lists;
 
 export default {
   addItem,
@@ -43,5 +44,6 @@ export default {
   editItem,
   editList,
   get: getData,
+  moveItem,
   moveList
 };

@@ -8,6 +8,10 @@
   &:active {
     cursor: grabbing;
   }
+
+  &.is-moving {
+    opacity: 0.5;
+  }
 }
 
 .flex-col {
@@ -30,4 +34,16 @@
 
 .primary {
   color: $primary-color;
+}
+
+.success {
+  color: $success-color;
+}
+
+.title {
+  @extend .bold;
+  
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1.4rem;
 }

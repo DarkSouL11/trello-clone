@@ -5,9 +5,32 @@
   padding: 1rem;
   flex: 0 0 auto;
   border-radius: $border-radius;
+  box-shadow: $shadow-color 0.1rem 0.1rem 0.4rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
 
-  &:not(:last-child) {
-    margin-bottom: 1rem;
+  &:nth-last-child(2) {
+    margin-bottom: 0.2rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.is-dummy {
+    background: $list-background;
+    padding: 0;
+    min-height: 0.3rem;
+    box-shadow: none;
+
+    p {
+      background: $item-background;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.4rem;
+      margin: 0.2rem;
+      box-shadow: $shadow-color 0.1rem 0.1rem 0.4rem;
+    }
   }
 }
 

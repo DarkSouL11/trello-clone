@@ -35,12 +35,10 @@
 }
 
 .modal-title {
-  @extend .bold;
+  @extend .title;
   @extend .flex-row;
 
   flex: 1 1 0;
-  text-transform: uppercase;
-  font-size: 1.4rem;
 }
 
 .modal-close {
